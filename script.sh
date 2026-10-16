@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo "server health is stable or not"
 echo "===== SERVER HEALTH CHECK ====="
 
 echo
