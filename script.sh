@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo"checking service is running or not"
 SERVICE="ssh"
 
 if systemctl is-active --quiet "$SERVICE"; then
