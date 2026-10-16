@@ -1,9 +1,30 @@
 #!/bin/bash
 
-SERVICE="ssh"
+echo "===== SERVER HEALTH CHECK ====="
 
-if systemctl is-active --quiet "$SERVICE"; then
-    echo "$SERVICE service is running"
+echo
+echo "1. Hostname"
+hostname
+
+echo
+echo "2. Uptime"
+uptime
+
+echo
+echo "3. Memory"
+free -h
+
+echo
+echo "4. Disk"
+df -h /
+
+echo
+echo "5. Network"
+if ping -c 1 -W 2 8.8.8.8 > /dev/null 2>&1; then
+    echo "Network: OK"
 else
-    echo "$SERVICE service is not running"
+    echo "Network: CHECK"
 fi
+
+echo
+echo "===== HEALTH CHECK COMPLETED ====="
